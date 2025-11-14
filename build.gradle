@@ -1,0 +1,31 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.14'
+}
+
+group = 'com.phokingfabulous'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = '23.0.1'
+    modules = [ 'javafx.controls' ]
+}
+
+application {
+    mainClass = 'com.phokingfabulous.App'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+dependencies {
+    implementation 'com.sparkjava:spark-core:2.9.4'
+    implementation 'org.xerial:sqlite-jdbc:3.46.0.0'
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'org.mindrot:jbcrypt:0.4'
+}
